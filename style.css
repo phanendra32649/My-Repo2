@@ -1,0 +1,44 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(to bottom right, #1e1e2f, #3a3a5d);
+  font-family: 'Segoe Script', cursive;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.message {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px #ff69b4;
+}
+
+.message h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.message p {
+  font-size: 1.5em;
+  animation: fadeIn 3s infinite alternate;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
