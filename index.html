@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To My Love ❤️</title>
+  <title>To Chinnuu 💖</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <canvas id="heartCanvas"></canvas>
-    <div class="message">
-      <h1>To: My Love 💖</h1>
-      <p id="loveText"></p>
+    <div class="overlay"></div>
+    <div class="story">
+      <p id="storyText"></p>
     </div>
-    <!-- Optional: Background music -->
-    <!-- <audio id="bgMusic" src="your-music.mp3" autoplay loop></audio> -->
+    <div class="heart-container" id="heartContainer">
+      <div class="heart"></div>
+      <h1 class="final-text">To: Chinnuu 💖</h1>
+    </div>
+    <audio id="bgMusic" autoplay loop>
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
