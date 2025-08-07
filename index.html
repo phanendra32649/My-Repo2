@@ -3,22 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To Chinnuu 💖</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>The Hidden Path</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
-    <div class="overlay"></div>
-    <div class="story">
-      <p id="storyText"></p>
+  <div id="stage-container">
+    <div id="stage1" class="stage">
+      <h1 class="glitch-text">ERROR CODE 13</h1>
+      <p class="glow-text">You were not supposed to be here...</p>
+      <button onclick="nextStage(2)">ENTER</button>
     </div>
-    <div class="heart-container" id="heartContainer">
+
+    <div id="stage2" class="stage hidden">
+      <h2>RIDDLE 1</h2>
+      <p>I have no voice, yet I scream. What am I?</p>
+      <div class="options">
+        <button onclick="wrongAnswer(this)">Mirror</button>
+        <button onclick="correctAnswer(this, 3)">Silence</button>
+        <button onclick="wrongAnswer(this)">Shadow</button>
+      </div>
+    </div>
+
+    <div id="stage3" class="stage hidden">
+      <p class="glow-text">You are brave... but do you trust the unknown?</p>
+      <button onclick="nextStage(4)">Proceed</button>
+    </div>
+
+    <div id="stage4" class="stage hidden">
+      <div class="typing-text" id="finalMessage"></div>
       <div class="heart"></div>
-      <h1 class="final-text">To: Chinnuu 💖</h1>
     </div>
-    <audio id="bgMusic" autoplay loop>
-      <source src="music.mp3" type="audio/mpeg" />
-    </audio>
   </div>
   <script src="script.js"></script>
 </body>
