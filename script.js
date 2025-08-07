@@ -1,38 +1,36 @@
-const storyLines = [
-  "She was scared...",
-  "Alone in the dark...",
-  "Nothing made sense...",
-  "But something changed...",
-  "She felt a presence...",
-  "She opened her heart...",
-  "And then… she found Love 💖"
-];
+let stage = 1;
 
-const storyText = document.getElementById("storyText");
-const heartContainer = document.getElementById("heartContainer");
-
-let lineIndex = 0;
-
-function typeLine(text, i = 0) {
-  if (i < text.length) {
-    storyText.textContent += text.charAt(i);
-    setTimeout(() => typeLine(text, i + 1), 50);
-  } else {
-    setTimeout(() => {
-      lineIndex++;
-      if (lineIndex < storyLines.length) {
-        storyText.textContent = "";
-        typeLine(storyLines[lineIndex]);
-      } else {
-        showHeart();
-      }
-    }, 1200);
+function nextStage(num) {
+  document.getElementById('stage' + stage).classList.add('hidden');
+  stage = num;
+  document.getElementById('stage' + stage).classList.remove('hidden');
+  if(stage === 4) {
+    showFinalMessage();
   }
 }
 
-function showHeart() {
-  storyText.style.display = "none";
-  heartContainer.style.display = "flex";
+function wrongAnswer(btn) {
+  btn.innerText = "WRONG!";
+  btn.style.background = "black";
+  btn.style.color = "red";
 }
 
-typeLine(storyLines[0]);
+function correctAnswer(btn, next) {
+  btn.innerText = "Correct ✓";
+  btn.style.background = "green";
+  setTimeout(() => nextStage(next), 1000);
+}
+
+function showFinalMessage() {
+  const message = "She wasn't supposed to know... But he couldn't hide it anymore. To: Chinnuu 💖 From: Nanna 💌";
+  const element = document.getElementById("finalMessage");
+  let i = 0;
+  const interval = setInterval(() => {
+    if(i < message.length) {
+      element.innerHTML += message[i];
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 70);
+}
