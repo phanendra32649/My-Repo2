@@ -2,38 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Hidden Path</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encrypted Access</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      background: radial-gradient(circle, #000000, #0f0f0f);
+      color: #00ffcc;
+      overflow: hidden;
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+    .glitch {
+      font-size: 2rem;
+      position: relative;
+    }
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      color: #ff0040;
+      clip: rect(0, 900px, 0, 0);
+    }
+    .glitch::before {
+      animation: glitchTop 2s infinite linear;
+    }
+    .glitch::after {
+      color: #00ffff;
+      animation: glitchBottom 2s infinite linear;
+    }
+    @keyframes glitchTop {
+      0% {
+        clip: rect(0, 9999px, 0, 0);
+      }
+      10% {
+        clip: rect(0, 9999px, 40px, 0);
+      }
+      20% {
+        clip: rect(0, 9999px, 0, 0);
+      }
+    }
+    @keyframes glitchBottom {
+      0% {
+        clip: rect(0, 9999px, 0, 0);
+      }
+      10% {
+        clip: rect(20px, 9999px, 60px, 0);
+      }
+      20% {
+        clip: rect(0, 9999px, 0, 0);
+      }
+    }
+    #start-btn {
+      background: #00ffcc;
+      border: none;
+      padding: 10px 30px;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s;
+    }
+    #start-btn:hover {
+      transform: scale(1.1);
+      background: #ff0055;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <div id="stage-container">
-    <div id="stage1" class="stage">
-      <h1 class="glitch-text">ERROR CODE 13</h1>
-      <p class="glow-text">You were not supposed to be here...</p>
-      <button onclick="nextStage(2)">ENTER</button>
-    </div>
-
-    <div id="stage2" class="stage hidden">
-      <h2>RIDDLE 1</h2>
-      <p>I have no voice, yet I scream. What am I?</p>
-      <div class="options">
-        <button onclick="wrongAnswer(this)">Mirror</button>
-        <button onclick="correctAnswer(this, 3)">Silence</button>
-        <button onclick="wrongAnswer(this)">Shadow</button>
-      </div>
-    </div>
-
-    <div id="stage3" class="stage hidden">
-      <p class="glow-text">You are brave... but do you trust the unknown?</p>
-      <button onclick="nextStage(4)">Proceed</button>
-    </div>
-
-    <div id="stage4" class="stage hidden">
-      <div class="typing-text" id="finalMessage"></div>
-      <div class="heart"></div>
-    </div>
+  <div class="center">
+    <div class="glitch" data-text="ENCRYPTED ACCESS DENIED">ENCRYPTED ACCESS DENIED</div>
+    <p style="margin-top: 20px;">You are not authorized to view this portal...</p>
+    <button id="start-btn">Override Lock</button>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    document.getElementById("start-btn").onclick = function () {
+      window.location.href = "level1.html";
+    };
+  </script>
 </body>
 </html>
