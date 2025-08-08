@@ -3,26 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome, Chinnuu</title>
+  <title>For Chinnuu</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <div class="container" id="login-page">
-    <h2>Login</h2>
-    <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="login()">Enter</button>
-    <p id="error-message"></p>
+    <div class="card login-card animate-fade-in">
+      <h2 class="title">Welcome, Chinnuu</h2>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="login()">Login</button>
+      <p id="error-message"></p>
+    </div>
   </div>
 
   <div class="container hidden" id="message-page">
-    <h1>Happy Rakshabandhan, Chinnuu ❤️</h1>
-    <p class="message">
-      From day one, you’ve filled my life with joy, laughter, and love.
-      On this special day, I just want you to know —  
-      I’ll always be your biggest protector and your biggest fan.  
-      <br><br>With all my heart,<br><strong>– Nanna 💖</strong>
-    </p>
+    <div class="card message-card animate-slide-up">
+      <h1 class="title">🌸 Happy Rakshabandhan, Chinnuu 🌸</h1>
+      <p class="message">
+        You are not just my sister — you’re my forever best friend, 
+        my strength, and the light of my life. On this special day,
+        I want you to know how much you mean to me.
+        <br><br>
+        I will always protect you, support you, and love you endlessly.
+        <br><br>
+        <strong>– With love, Nanna ❤️</strong>
+      </p>
+    </div>
   </div>
 
   <script src="script.js"></script>
