@@ -3,32 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🔐 Access Terminal</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Welcome, Chinnuu</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="login-container">
-    <h1 class="glitch" data-text="SYSTEM LOCKED">SYSTEM LOCKED</h1>
-    <p class="subtext">Enter your credentials to proceed</p>
-
-    <input type="text" id="username" placeholder="Username" autocomplete="off" />
-    <input type="password" id="password" placeholder="Password" autocomplete="off" />
-
-    <button onclick="verifyLogin()">LOGIN</button>
-    <p id="error" class="error-text"></p>
+  <div class="container" id="login-page">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Enter</button>
+    <p id="error-message"></p>
   </div>
 
-  <script>
-    function verifyLogin() {
-      const user = document.getElementById('username').value.trim().toUpperCase();
-      const pass = document.getElementById('password').value.trim();
+  <div class="container hidden" id="message-page">
+    <h1>Happy Rakshabandhan, Chinnuu ❤️</h1>
+    <p class="message">
+      From day one, you’ve filled my life with joy, laughter, and love.
+      On this special day, I just want you to know —  
+      I’ll always be your biggest protector and your biggest fan.  
+      <br><br>With all my heart,<br><strong>– Nanna 💖</strong>
+    </p>
+  </div>
 
-      if (user === "CHINNU" && pass === "1903") {
-        window.location.href = "level1.html";
-      } else {
-        document.getElementById('error').textContent = "ACCESS DENIED. WRONG CREDENTIALS!";
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
