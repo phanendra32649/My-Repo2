@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LEVEL 7 – Awakening Mirror</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: url('https://i.imgur.com/zZ6uO84.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Georgia', serif;
+      color: #f0e6f6;
+      text-align: center;
+      padding: 60px 30px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #d8b4ff;
+      text-shadow: 0 0 10px #b47cff;
+    }
+
+    .mirror {
+      margin: 30px auto;
+      max-width: 600px;
+      background: rgba(0,0,0,0.6);
+      padding: 25px;
+      border: 2px solid #b47cff;
+      border-radius: 12px;
+      box-shadow: 0 0 25px #b47cff;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 15px 0;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 1rem;
+      margin-top: 10px;
+      border: 1px solid #b47cff;
+      background: #1a001f;
+      color: #fff;
+      width: 250px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      background: #b47cff;
+      border: none;
+      color: #000;
+      cursor: pointer;
+    }
+
+    .hint {
+      margin-top: 25px;
+      color: #ff99cc;
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    .error {
+      margin-top: 15px;
+      color: #ff4d4d;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>LEVEL 7</h1>
+  <div class="mirror">
+    <p>A glowing mirror shows your reflection, glitching with words.</p>
+    <p>It whispers: <br><strong>“I protect you without asking, I fight even your silence, I never leave even if you forget me...”</strong></p>
+    <p>Who am I?</p>
+
+    <input type="text" id="answer" placeholder="Enter your answer" />
+    <br>
+    <button onclick="checkAnswer()">Submit</button>
+    <p class="error" id="error"></p>
+    <p class="hint">Hint: It’s someone very close to your heart…</p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.trim().toLowerCase();
+      const correct = "brother";
+
+      if (input === correct) {
+        window.location.href = "final.html";
+      } else {
+        document.getElementById("error").textContent = "The mirror flickers... Wrong answer.";
+      }
+    }
+  </script>
+
+</body>
+</html>
