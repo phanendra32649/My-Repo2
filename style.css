@@ -18,7 +18,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 480px;
+  max-width: 500px;
   text-align: center;
 }
 
@@ -29,7 +29,8 @@ body {
 .login-box,
 .tease-box,
 .message-box,
-.gallery-box {
+.gallery-box,
+.lock-box {
   background: rgba(255, 255, 255, 0.05);
   padding: 30px 25px;
   border-radius: 15px;
@@ -119,35 +120,31 @@ button:hover {
 }
 
 /* 📷 Gallery Styling */
-.gallery-box {
-  padding: 25px;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
-}
-
 .gallery-box h2 {
-  font-size: 22px;
-  margin-bottom: 15px;
+  font-size: 24px;
+  margin-bottom: 20px;
   color: #ffe6f7;
+  text-align: center;
 }
 
-.gallery-grid {
+.gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 12px;
 }
 
-.gallery-grid img {
+.gallery img {
   width: 100%;
-  height: 150px;
+  height: 160px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
   animation-delay: 0.2s;
   transition: transform 0.3s ease;
 }
 
-.gallery-grid img:hover {
+.gallery img:hover {
   transform: scale(1.05);
 }
 
@@ -169,9 +166,23 @@ button:hover {
   100% { transform: translateX(0); }
 }
 
+/* 🔒 Countdown lock style */
+.lock-box h2 {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.lock-box .countdown {
+  font-size: 22px;
+  color: #ff80df;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
 /* 📱 Responsive Typography */
 @media screen and (max-width: 480px) {
-  .login-box, .tease-box, .message-box, .gallery-box {
+  .login-box, .tease-box, .message-box, .gallery-box, .lock-box {
     padding: 20px;
   }
 
@@ -184,7 +195,11 @@ button:hover {
     font-size: 16px;
   }
 
-  .gallery-grid img {
-    height: 120px;
+  .gallery img {
+    height: 130px;
+  }
+
+  .glitch-text {
+    font-size: 20px;
   }
 }
