@@ -63,8 +63,10 @@
         <li>Fighting for no reason and then missing each other instantly 😅</li>
       </ul>
     </div>
+    <button class="journey-button" onclick="goToTeaseEnd()">➡️ Next</button>
   </div>
 </section>
+
 
   <!-- FINAL TEASE PAGE -->
 <section id="tease-end-screen" class="container hidden">
@@ -73,6 +75,7 @@
     <p class="tease-text">Get lost and do your work 😜</p>
   </div>
 </section>
+
 
 
 
@@ -149,6 +152,9 @@ You are deeply cherished, and you always will be.
   setTimeout(() => {
     switchScreen("gallery-screen", "tease-end-screen");
   }, 8000);
+}
+function goToTeaseEnd() {
+  switchScreen("gallery-screen", "tease-end-screen");
 }
 
 
