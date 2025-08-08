@@ -203,3 +203,38 @@ button:hover {
     font-size: 20px;
   }
 }
+#lock-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #0d0d0d 40%, #000000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lock-container {
+  text-align: center;
+  padding: 40px 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 80px rgba(255, 0, 255, 0.15);
+  color: #fff;
+  max-width: 90%;
+  width: 400px;
+  animation: fadeIn 1s ease forwards;
+}
+
+.lock-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+#countdown-timer {
+  font-size: 24px;
+  margin-top: 10px;
+  color: #ff99cc;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
