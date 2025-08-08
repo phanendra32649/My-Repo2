@@ -29,9 +29,9 @@ function shakeLoginBox() {
 
 function showLoveMessage() {
   const message = `
-You are not just my sister, Chinnuu...
+You are not just my sister, Chinnuu.
 
-You’re a gift, a light, a blessing in my life.
+You are a part of my soul, my reason to smile, and someone I care for like my own daughter.
 
 On this Rakshabandhan, I promise—
 I will always protect you, love you, and support you.
