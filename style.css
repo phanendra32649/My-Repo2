@@ -1,77 +1,66 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Courier New', monospace;
-  background: radial-gradient(circle, #000, #111);
-  color: #0f0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  flex-direction: column;
+  color: white;
 }
 
-.login-container {
+.container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
   text-align: center;
-}
-
-.glitch {
-  font-size: 3rem;
-  color: red;
-  position: relative;
-}
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-.glitch::before {
-  color: #0ff;
-  top: -2px;
-  clip: rect(0, 900px, 0, 0);
-  animation: glitchTop 2s infinite linear alternate-reverse;
-}
-.glitch::after {
-  color: #f0f;
-  top: 2px;
-  clip: rect(0, 900px, 0, 0);
-  animation: glitchBottom 1.5s infinite linear alternate-reverse;
-}
-@keyframes glitchTop {
-  0%, 100% { clip: rect(0, 9999px, 0, 0); }
-  20% { clip: rect(0, 9999px, 30px, 0); }
-}
-@keyframes glitchBottom {
-  0%, 100% { clip: rect(50px, 9999px, 60px, 0); }
-  20% { clip: rect(10px, 9999px, 40px, 0); }
+  width: 90%;
+  max-width: 400px;
 }
 
 input {
-  padding: 10px;
-  margin: 15px 0;
-  border: 1px solid red;
-  background: transparent;
-  color: red;
-  font-size: 1.2rem;
-  outline: none;
-}
-button {
-  padding: 10px 20px;
-  background: red;
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
   border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  background: #4caf50;
   color: white;
-  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
+
 button:hover {
-  background: crimson;
+  background: #43a047;
 }
-.error-text {
-  color: #f00;
+
+#message-page h1 {
+  color: #ffe082;
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #f1f1f1;
+}
+
+.hidden {
+  display: none;
+}
+
+#error-message {
+  color: #ff5252;
   margin-top: 10px;
-}
-.subtext {
-  color: #ccc;
 }
