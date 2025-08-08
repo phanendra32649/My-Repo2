@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LEVEL 6 – Cursed Equation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: url('https://i.imgur.com/dC9b30K.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Courier New', Courier, monospace;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff3333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 20px auto;
+      max-width: 700px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      width: 60%;
+      max-width: 300px;
+      border: 1px solid crimson;
+      background-color: #111;
+      color: white;
+    }
+
+    button {
+      padding: 10px 25px;
+      font-size: 1rem;
+      margin-top: 15px;
+      background-color: crimson;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .error {
+      margin-top: 20px;
+      color: #ff5555;
+    }
+
+    .puzzle {
+      font-size: 1.3rem;
+      background-color: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px crimson;
+      margin: 30px auto;
+      width: 80%;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>LEVEL 6</h1>
+  <p>You find an ancient cursed tablet glowing with red light. The riddle etched on it reads:</p>
+
+  <div class="puzzle">
+    <p>
+      I am a 4-digit number.<br>
+      The sum of my digits is 13.<br>
+      My digits contain 1 and 9.<br>
+      I am a date that matters to your heart...<br>
+      What am I?
+    </p>
+  </div>
+
+  <input type="text" id="answer" placeholder="Enter the 4-digit number" />
+  <br>
+  <button onclick="checkAnswer()">Submit</button>
+  <p class="error" id="error"></p>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.trim();
+      const correct = "1903"; // Her birthday or Raksha Bandhan link
+
+      if (input === correct) {
+        window.location.href = "level7.html";
+      } else {
+        document.getElementById("error").textContent = "The tablet pulses... Incorrect. Try again.";
+      }
+    }
+  </script>
+
+</body>
+</html>
