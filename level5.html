@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LEVEL 5 – Whispering Text</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: url('https://i.imgur.com/WHEU9du.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Courier New', Courier, monospace;
+      color: #f8f8f8;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      color: #ff4444;
+      font-size: 2.5rem;
+    }
+
+    .scramble-box {
+      margin: 40px auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px red;
+    }
+
+    .scrambled {
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+      color: #ffdddd;
+    }
+
+    input {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid red;
+      background: black;
+      color: white;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: crimson;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .error {
+      color: #ff4444;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>LEVEL 5</h1>
+  <div class="scramble-box">
+    <p>The spirits left you a message... but it’s scrambled.</p>
+    <p class="scrambled">RETHA IWSREPHA SINKS</p>
+    <p><small>Hint: Unscramble the letters to reveal the hidden phrase.</small></p>
+    <input type="text" id="userInput" placeholder="Type your answer..." />
+    <br>
+    <button onclick="checkAnswer()">Unlock</button>
+    <p class="error" id="errorText"></p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("userInput").value.trim().toLowerCase();
+      const correct = "the whisper has risen";
+
+      if (input === correct) {
+        window.location.href = "level6.html";
+      } else {
+        document.getElementById("errorText").textContent = "The spirits grow impatient... Try again.";
+      }
+    }
+  </script>
+</body>
+</html>
