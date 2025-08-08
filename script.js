@@ -1,36 +1,12 @@
-let stage = 1;
+function login() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const error = document.getElementById("error-message");
 
-function nextStage(num) {
-  document.getElementById('stage' + stage).classList.add('hidden');
-  stage = num;
-  document.getElementById('stage' + stage).classList.remove('hidden');
-  if(stage === 4) {
-    showFinalMessage();
+  if (username === "CHINNU" && password === "1903") {
+    document.getElementById("login-page").classList.add("hidden");
+    document.getElementById("message-page").classList.remove("hidden");
+  } else {
+    error.textContent = "Incorrect username or password.";
   }
-}
-
-function wrongAnswer(btn) {
-  btn.innerText = "WRONG!";
-  btn.style.background = "black";
-  btn.style.color = "red";
-}
-
-function correctAnswer(btn, next) {
-  btn.innerText = "Correct ✓";
-  btn.style.background = "green";
-  setTimeout(() => nextStage(next), 1000);
-}
-
-function showFinalMessage() {
-  const message = "She wasn't supposed to know... But he couldn't hide it anymore. To: Chinnuu 💖 From: Nanna 💌";
-  const element = document.getElementById("finalMessage");
-  let i = 0;
-  const interval = setInterval(() => {
-    if(i < message.length) {
-      element.innerHTML += message[i];
-      i++;
-    } else {
-      clearInterval(interval);
-    }
-  }, 70);
 }
