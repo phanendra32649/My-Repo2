@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- LOGIN SCREEN -->
   <div id="login-screen" class="container">
     <div class="login-box">
       <h2 class="glitch-text">ENTER CREDENTIALS</h2>
@@ -18,6 +19,7 @@
     </div>
   </div>
 
+  <!-- TEASE SCREEN -->
   <div id="tease-screen" class="container hidden">
     <div class="tease-box">
       <p class="tease-text">Verifying identity...</p>
@@ -27,11 +29,26 @@
     </div>
   </div>
 
+  <!-- FINAL LOVE MESSAGE SCREEN -->
   <div id="final-screen" class="container hidden">
     <div class="message-box">
       <h1>Happy Rakshabandhan, Chinnuu 💝🎀</h1>
       <p id="love-message"></p>
-      <p class="signature">— With all my love,Yours Nanna ❤️</p>
+      <p class="signature">— With all my love, Yours Nanna ❤️</p>
+      <button class="journey-button" onclick="showGallery()">📸 View Our Journey</button>
+    </div>
+  </div>
+
+  <!-- GALLERY SCREEN -->
+  <div id="gallery-screen" class="container hidden">
+    <div class="gallery-box">
+      <h2>💫 Our Journey Together 💫</h2>
+      <div class="gallery">
+        <img src="images/photo1.jpg" alt="Memory 1">
+        <img src="images/photo2.jpg" alt="Memory 2">
+        <img src="images/photo3.jpg" alt="Memory 3">
+        <!-- Add more photos here -->
+      </div>
     </div>
   </div>
 
