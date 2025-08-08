@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LEVEL 1 – Solve to Escape</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .level {
+      text-align: center;
+      color: #f00;
+    }
+    .riddle-box {
+      margin-top: 30px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border: 2px solid #900;
+      border-radius: 10px;
+    }
+    input {
+      margin-top: 20px;
+      width: 300px;
+    }
+    .hint {
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="level">
+    <h1>LEVEL 1</h1>
+    <div class="riddle-box">
+      <h3>💀 Riddle of the Shadows 💀</h3>
+      <p>I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?</p>
+      <input type="text" id="answer" placeholder="Your Answer..." />
+      <br>
+      <button onclick="checkAnswer()">Submit</button>
+      <p class="hint">Hint: It's invisible, but loud in the dark.</p>
+      <p id="error" class="error-text"></p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const ans = document.getElementById("answer").value.trim().toLowerCase();
+      if (ans === "echo") {
+        window.location.href = "level2.html";
+      } else {
+        document.getElementById("error").textContent = "Wrong answer... The darkness grows.";
+      }
+    }
+  </script>
+</body>
+</html>
