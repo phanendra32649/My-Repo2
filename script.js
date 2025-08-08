@@ -3,20 +3,26 @@ function startLogin() {
   const password = document.getElementById("password").value.trim();
   const error = document.getElementById("error-message");
 
-  if (username === "CHINNU" && password === "1903") {
-    document.getElementById("login-screen").classList.add("hidden");
-    document.getElementById("tease-screen").classList.remove("hidden");
+  // Clear previous error
+  error.textContent = "";
 
-    // Start teasing animation, then show final screen
+  if (username === "CHINNU" && password === "1903") {
+    switchScreen("login-screen", "tease-screen");
+
+    // Show teasing animation then switch to final message
     setTimeout(() => {
-      document.getElementById("tease-screen").classList.add("hidden");
-      document.getElementById("final-screen").classList.remove("hidden");
+      switchScreen("tease-screen", "final-screen");
       showLoveMessage();
     }, 6500); // 6.5 seconds
   } else {
-    error.textContent = "Access denied. Try again.";
+    error.textContent = "Access Denied. Please try again.";
     shakeLoginBox();
   }
+}
+
+function switchScreen(hideId, showId) {
+  document.getElementById(hideId).classList.add("hidden");
+  document.getElementById(showId).classList.remove("hidden");
 }
 
 function shakeLoginBox() {
@@ -29,18 +35,19 @@ function showLoveMessage() {
   const message = `
 You are not just my sister, Chinnuu.
 
-You are a part of my soul, my reason to smile, and someone I care for like my own daughter.
+You are a part of my soul, my reason to smile,
+and someone I love and care for like my own daughter.
 
 On this Rakshabandhan, I promise—
-I will always protect you, love you, and support you.
+To protect you, support you, and stand by you always.
 
-You are deeply cherished.
+You are deeply cherished, and you always will be.
   `.trim();
 
-  let i = 0;
   const target = document.getElementById("love-message");
-  target.textContent = ""; // clear previous message
+  target.textContent = "";
 
+  let i = 0;
   const typeWriter = setInterval(() => {
     if (i < message.length) {
       target.textContent += message.charAt(i);
@@ -51,8 +58,13 @@ You are deeply cherished.
   }, 40);
 }
 
-// Show gallery after love message
 function showGallery() {
-  document.getElementById("final-screen").classList.add("hidden");
-  document.getElementById("gallery-screen").classList.remove("hidden");
+  switchScreen("final-screen", "gallery-screen");
 }
+
+// Optional: Allow pressing "Enter" to trigger login
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !document.getElementById("login-screen").classList.contains("hidden")) {
+    startLogin();
+  }
+});
