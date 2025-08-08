@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Sister – Chinnuu 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.4);
+      animation: fadeIn 2s ease-out;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    .typewriter {
+      font-size: 1.2rem;
+      color: #444;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      border-right: 2px solid #e91e63;
+      overflow: hidden;
+      animation: typing 6s steps(80, end), blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #666;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Rakshabandhan, Chinnuu 💖</h1>
+    <div class="typewriter" id="message"></div>
+    <div class="footer">– With all my heart, Nanna ❤️</div>
+  </div>
+
+  <script>
+    const msg = `You made it through the dark riddles, the haunted mirrors, and twisted illusions...
+
+But this was never a horror story.
+
+It was always a journey to remind you how deeply you're loved.
+
+You're not just my sister... you're my strength, my pride, my joy.
+
+No curse, no fear, no darkness could ever hide that.
+
+Today, on Rakshabandhan, I just wanted to say...
+
+I’ll protect you forever.
+
+Love you always, Chinnuu ❤️`;
+
+    let i = 0;
+    const speed = 40;
+    const messageBox = document.getElementById("message");
+
+    function typeWriter() {
+      if (i < msg.length) {
+        messageBox.innerHTML += msg.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    typeWriter();
+  </script>
+</body>
+</html>
