@@ -3,54 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LOGIN PAGE</title>
+  <title>Login For Special Message</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- LOGIN SCREEN -->
-  <div id="login-screen" class="container">
+  <section id="login-screen" class="container">
     <div class="login-box">
       <h2 class="glitch-text">ENTER CREDENTIALS</h2>
-      <input type="text" id="username" placeholder="Username" />
+      <input type="text" id="username" placeholder="Username" autocomplete="off" />
       <input type="password" id="password" placeholder="Password" />
-      <button onclick="startLogin()">Access</button>
+      <button type="button" onclick="startLogin()">Access</button>
       <p id="error-message"></p>
-      <p class="warning-text">⚠️ Enter Proper Details.....</p>
+      <p class="warning-text">⚠️ Enter Proper Details...</p>
     </div>
-  </div>
+  </section>
 
   <!-- TEASE SCREEN -->
-  <div id="tease-screen" class="container hidden">
+  <section id="tease-screen" class="container hidden">
     <div class="tease-box">
       <p class="tease-text">Verifying identity...</p>
       <p class="tease-text delay1">Scanning emotional history...</p>
       <p class="tease-text delay2">Decrypting feelings...</p>
       <p class="tease-text delay3">Access granted to: <span class="name">CHINNU</span></p>
     </div>
-  </div>
+  </section>
 
-  <!-- FINAL LOVE MESSAGE SCREEN -->
-  <div id="final-screen" class="container hidden">
+  <!-- LOVE MESSAGE SCREEN -->
+  <section id="final-screen" class="container hidden">
     <div class="message-box">
       <h1>Happy Rakshabandhan, Chinnuu 💝🎀</h1>
       <p id="love-message"></p>
       <p class="signature">— With all my love, Yours Nanna ❤️</p>
       <button class="journey-button" onclick="showGallery()">📸 View Our Journey</button>
     </div>
-  </div>
+  </section>
 
   <!-- GALLERY SCREEN -->
-  <div id="gallery-screen" class="container hidden">
+  <section id="gallery-screen" class="container hidden">
     <div class="gallery-box">
       <h2>💫 Our Journey Together 💫</h2>
       <div class="gallery">
         <img src="WhatsApp Image 2025-08-08 at 20.53.44_cb9a8ae6.jpg" alt="Memory 1">
         <img src="WhatsApp Image 2025-08-08 at 20.54.14_935fefef.jpg" alt="Memory 2">
         <img src="WhatsApp Image 2025-08-08 at 20.54.43_6b955e98.jpg" alt="Memory 3">
-        <!-- Add more photos here -->
+        <!-- Add more images as needed -->
       </div>
     </div>
-  </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
