@@ -82,7 +82,12 @@ You are deeply cherished, and you always will be.
 
 function showGallery() {
   switchScreen("final-screen", "gallery-screen");
+  // Auto move to final tease page after 8 seconds
+  setTimeout(() => {
+    switchScreen("gallery-screen", "tease-end-screen");
+  }, 8000);
 }
+
 
 // Optional: Allow pressing "Enter" to trigger login
 document.addEventListener("keydown", (e) => {
