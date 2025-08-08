@@ -1,118 +1,77 @@
 body {
   margin: 0;
   padding: 0;
-  background: black;
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-  overflow: hidden;
-}
-
-#stage-container {
+  font-family: 'Courier New', monospace;
+  background: radial-gradient(circle, #000, #111);
+  color: #0f0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   flex-direction: column;
+}
+
+.login-container {
   text-align: center;
-  padding: 20px;
 }
 
-.stage {
-  display: none;
+.glitch {
+  font-size: 3rem;
+  color: red;
+  position: relative;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.glitch::before {
+  color: #0ff;
+  top: -2px;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitchTop 2s infinite linear alternate-reverse;
+}
+.glitch::after {
+  color: #f0f;
+  top: 2px;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitchBottom 1.5s infinite linear alternate-reverse;
+}
+@keyframes glitchTop {
+  0%, 100% { clip: rect(0, 9999px, 0, 0); }
+  20% { clip: rect(0, 9999px, 30px, 0); }
+}
+@keyframes glitchBottom {
+  0%, 100% { clip: rect(50px, 9999px, 60px, 0); }
+  20% { clip: rect(10px, 9999px, 40px, 0); }
 }
 
-.stage:not(.hidden) {
-  display: block;
+input {
+  padding: 10px;
+  margin: 15px 0;
+  border: 1px solid red;
+  background: transparent;
+  color: red;
+  font-size: 1.2rem;
+  outline: none;
 }
-
 button {
   padding: 10px 20px;
-  font-size: 18px;
-  background: crimson;
+  background: red;
   border: none;
   color: white;
-  margin-top: 20px;
+  font-weight: bold;
   cursor: pointer;
-  border-radius: 6px;
-  transition: transform 0.2s;
 }
-
 button:hover {
-  transform: scale(1.05);
+  background: crimson;
 }
-
-.glitch-text {
-  font-size: 40px;
-  color: red;
-  animation: glitch 1s infinite;
+.error-text {
+  color: #f00;
+  margin-top: 10px;
 }
-
-.glow-text {
+.subtext {
   color: #ccc;
-  text-shadow: 0 0 10px #ff0000;
-}
-
-@keyframes glitch {
-  0% { text-shadow: 2px 2px red; }
-  20% { text-shadow: -2px -2px blue; }
-  40% { text-shadow: 2px -2px green; }
-  60% { text-shadow: -2px 2px orange; }
-  80% { text-shadow: 0 0 5px white; }
-  100% { text-shadow: 2px 2px red; }
-}
-
-.options button {
-  display: block;
-  margin: 10px auto;
-}
-
-.typing-text {
-  font-size: 24px;
-  color: white;
-  border-right: 2px solid white;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-  animation: typing 4s steps(40, end) forwards;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-.heart {
-  width: 100px;
-  height: 90px;
-  background: red;
-  position: relative;
-  margin: 30px auto;
-  transform: rotate(-45deg);
-  animation: pulse 1s infinite;
-}
-
-.heart::before,
-.heart::after {
-  content: "";
-  width: 100px;
-  height: 90px;
-  background: red;
-  border-radius: 50%;
-  position: absolute;
-}
-
-.heart::before {
-  top: -50px;
-  left: 0;
-}
-
-.heart::after {
-  left: 50px;
-  top: 0;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1) rotate(-45deg); }
-  50% { transform: scale(1.1) rotate(-45deg); }
-  100% { transform: scale(1) rotate(-45deg); }
 }
