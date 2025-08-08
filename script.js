@@ -1,5 +1,5 @@
 // Timer Lock Code
-const launchDate = new Date("2025-08-09T00:00:00+05:30").getTime(); // 12AM IST
+const launchDate = new Date("2025-08-08T00:00:00+05:30").getTime(); // 12AM IST
 const timerScreen = document.getElementById("timer-lock-screen");
 const loginScreen = document.getElementById("login-screen");
 
