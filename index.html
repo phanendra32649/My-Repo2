@@ -27,8 +27,8 @@
       <button type="button" onclick="startLogin()">Access</button>
       <p id="error-message"></p>
       <p class="warning-text">⚠️ Enter Proper Details...
-        HINT💡:-Warning,May cause excessive hugging!
-      NOTE:-PAGE OPENS TONIGHT 12 AM </p>
+        HINT💡:- Warning, May cause excessive hugging!
+        NOTE:- PAGE OPENS TONIGHT 12 AM </p>
     </div>
   </section>
 
@@ -52,41 +52,66 @@
     </div>
   </section>
 
- <!-- GALLERY SCREEN -->
-<section id="gallery-screen" class="container hidden">
-  <div class="gallery-box">
-    <h2>💫 Our Journey Together 💫</h2>
-    <div class="journey-text">
-      <ul>
-        <li>Endless hugs that made everything better 🤗</li>
-        <li>Kisses on the forehead that spoke louder than promises😘</li>
-        <li>Fighting for no reason and then missing each other instantly 😅</li>
-      </ul>
+  <!-- GALLERY SCREEN -->
+  <section id="gallery-screen" class="container hidden">
+    <div class="gallery-box">
+      <h2>💫 Our Journey Together 💫</h2>
+      <div class="journey-text">
+        <ul>
+          <li>Endless hugs that made everything better 🤗</li>
+          <li>Kisses on the forehead that spoke louder than promises 😘</li>
+          <li>Fighting for no reason and then missing each other instantly 😅</li>
+        </ul>
+      </div>
+      <button class="journey-button" onclick="goToTeaseEnd()">➡️ Next</button>
     </div>
-    <button class="journey-button" onclick="goToTeaseEnd()">➡️ Next</button>
-  </div>
-</section>
-
+  </section>
 
   <!-- FINAL TEASE PAGE -->
-<section id="tease-end-screen" class="container hidden">
-  <div class="message-box">
-    <h2>Navvukunnava😁</h2>
-    <p class="tease-text">Navindhi chalu elli pani chusko poo......🤣👻)</p>
-  </div>
-</section>
-
-
-
+  <section id="tease-end-screen" class="container hidden">
+    <div class="message-box">
+      <h2>Navvukunnava😁</h2>
+      <p class="tease-text">Navindhi chalu elli pani chusko poo......🤣👻</p>
+    </div>
+  </section>
 
   <!-- SCRIPT -->
   <script>
     const timerScreen = document.getElementById("timer-lock-screen");
     const loginScreen = document.getElementById("login-screen");
+    const countdown = document.getElementById("countdown-timer");
 
-    // DISABLE LOCK FOR TESTING
-    timerScreen.classList.add("hidden");
-    loginScreen.classList.remove("hidden");
+    function updateTimer() {
+      const now = new Date();
+      const midnight = new Date();
+      midnight.setHours(24, 0, 0, 0); // Sets time to midnight (12:00 AM)
+
+      const diff = midnight - now;
+
+      if (diff <= 0) {
+        // Time is up — show login screen
+        timerScreen.classList.add("hidden");
+        loginScreen.classList.remove("hidden");
+      } else {
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        countdown.textContent = `${hours.toString().padStart(2, '0')} :
+                                 ${minutes.toString().padStart(2, '0')} :
+                                 ${seconds.toString().padStart(2, '0')}`;
+      }
+    }
+
+    // Start the countdown
+    updateTimer();
+    const timerInterval = setInterval(() => {
+      updateTimer();
+      const now = new Date();
+      if (now.getHours() === 0 && now.getMinutes() === 0 && now.getSeconds() === 0) {
+        clearInterval(timerInterval);
+      }
+    }, 1000);
 
     function startLogin() {
       const username = document.getElementById("username").value.trim();
@@ -147,16 +172,15 @@ You are deeply cherished, and you always will be.
     }
 
     function showGallery() {
-  switchScreen("final-screen", "gallery-screen");
-  // Auto move to final tease page after 8 seconds
-  setTimeout(() => {
-    switchScreen("gallery-screen", "tease-end-screen");
-  }, 8000);
-}
-function goToTeaseEnd() {
-  switchScreen("gallery-screen", "tease-end-screen");
-}
+      switchScreen("final-screen", "gallery-screen");
+      setTimeout(() => {
+        switchScreen("gallery-screen", "tease-end-screen");
+      }, 8000);
+    }
 
+    function goToTeaseEnd() {
+      switchScreen("gallery-screen", "tease-end-screen");
+    }
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && !loginScreen.classList.contains("hidden")) {
@@ -164,6 +188,5 @@ function goToTeaseEnd() {
       }
     });
   </script>
-
 </body>
 </html>
