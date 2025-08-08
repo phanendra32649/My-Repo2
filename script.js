@@ -28,7 +28,7 @@ function startLogin() {
   // Clear previous error
   error.textContent = "";
 
-  if (username === "CHINNU" && password === "1903") {
+  if (username === "CHINNU" && password === "CUDDLEPANDA") {
     switchScreen("login-screen", "tease-screen");
 
     // Show teasing animation then switch to final message
