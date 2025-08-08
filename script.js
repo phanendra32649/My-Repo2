@@ -1,12 +1,50 @@
-function login() {
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
+function startLogin() {
+  const user = document.getElementById("username").value.trim();
+  const pass = document.getElementById("password").value.trim();
   const error = document.getElementById("error-message");
 
-  if (username === "CHINNU" && password === "1903") {
-    document.getElementById("login-page").classList.add("hidden");
-    document.getElementById("message-page").classList.remove("hidden");
+  if (user === "CHINNU" && pass === "1903") {
+    document.getElementById("login-screen").classList.add("hidden");
+    document.getElementById("tease-screen").classList.remove("hidden");
+
+    setTimeout(() => {
+      document.getElementById("tease-screen").classList.add("hidden");
+      document.getElementById("final-screen").classList.remove("hidden");
+      showLoveMessage();
+    }, 6500); // 6.5 seconds of tease
   } else {
-    error.textContent = "Incorrect username or password.";
+    error.textContent = "Access denied. Try again.";
+    shakeLoginBox();
   }
+}
+
+function shakeLoginBox() {
+  const box = document.querySelector(".login-box");
+  box.classList.add("shake");
+  setTimeout(() => box.classList.remove("shake"), 500);
+}
+
+function showLoveMessage() {
+  const message = `
+You are not just my sister, Chinnuu...
+
+You’re a gift, a light, a blessing in my life.
+
+On this Rakshabandhan, I promise—
+I will always protect you, love you, and support you.
+
+You are deeply cherished.
+
+  `.trim();
+
+  let i = 0;
+  const target = document.getElementById("love-message");
+  const typeWriter = setInterval(() => {
+    if (i < message.length) {
+      target.textContent += message.charAt(i);
+      i++;
+    } else {
+      clearInterval(typeWriter);
+    }
+  }, 40);
 }
