@@ -87,6 +87,9 @@ function showGallery() {
     switchScreen("gallery-screen", "tease-end-screen");
   }, 8000);
 }
+function goToTeaseEnd() {
+  switchScreen("gallery-screen", "tease-end-screen");
+}
 
 
 // Optional: Allow pressing "Enter" to trigger login
