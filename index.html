@@ -7,8 +7,17 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- TIMER LOCK SCREEN -->
+  <section id="timer-lock-screen" class="container">
+    <div class="login-box">
+      <h2>🔒 Locked</h2>
+      <p>This special message will unlock in:</p>
+      <h3 id="countdown-timer"></h3>
+    </div>
+  </section>
+
   <!-- LOGIN SCREEN -->
-  <section id="login-screen" class="container">
+  <section id="login-screen" class="container hidden">
     <div class="login-box">
       <h2 class="glitch-text">ENTER CREDENTIALS</h2>
       <input type="text" id="username" placeholder="Username" autocomplete="off" />
@@ -43,9 +52,9 @@
   <section id="gallery-screen" class="container hidden">
     <div class="gallery-box">
       <h2>💫 Our Journey Together 💫</h2>
-      <div class="gallery">
+      <div class="gallery-grid">
         <img src="WhatsApp Image 2025-08-08 at 21.15.01_cc881231.jpg" alt="Memory 1">
-        <!-- Add more images as needed -->
+        <!-- Add more images here -->
       </div>
     </div>
   </section>
