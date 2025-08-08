@@ -2,97 +2,104 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(to right, #141e30, #243b55);
+  background: #0d0d0d;
+  color: white;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
 }
 
 .container {
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-  backdrop-filter: blur(10px);
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-}
-
-input {
-  width: 90%;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  outline: none;
-}
-
-button {
-  margin-top: 10px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  background: #ff4081;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: #e91e63;
-}
-
-.title {
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.message {
-  margin-top: 20px;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #f0f0f0;
 }
 
 .hidden {
   display: none;
 }
 
-#error-message {
-  color: #ff4c4c;
+.login-box, .tease-box, .message-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px 40px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
   margin-top: 10px;
+  background: #ff0077;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-/* Animations */
-.animate-fade-in {
-  animation: fadeIn 1.2s ease-out forwards;
+button:hover {
+  background: #e6005c;
 }
 
-.animate-slide-up {
-  animation: slideUp 1.2s ease-out forwards;
+#love-message {
+  font-size: 18px;
+  line-height: 1.6;
+  white-space: pre-wrap;
 }
+
+.signature {
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.warning-text {
+  margin-top: 10px;
+  color: #ff4c4c;
+  font-size: 13px;
+}
+
+.glitch-text {
+  font-size: 22px;
+  color: #fff;
+  animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+  20% { text-shadow: -2px 0 red, 2px 0 cyan; }
+  40% { text-shadow: 2px 0 red, -2px 0 cyan; }
+  60% { text-shadow: -1px 0 red, 1px 0 cyan; }
+  80% { text-shadow: 1px 0 red, -1px 0 cyan; }
+  100% { text-shadow: 0 0 red, 0 0 cyan; }
+}
+
+.tease-text {
+  font-size: 18px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+.delay1 { animation-delay: 1s; }
+.delay2 { animation-delay: 2.5s; }
+.delay3 { animation-delay: 4s; }
 
 @keyframes fadeIn {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes slideUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; }
 }
