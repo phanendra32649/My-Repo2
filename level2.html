@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LEVEL 2 – Whispered Secrets</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: url('https://i.imgur.com/x0I6Zqk.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    .clue {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border: 2px solid #600;
+      border-radius: 10px;
+    }
+    .clue p {
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    input {
+      margin-top: 20px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <h1>LEVEL 2</h1>
+  <div class="clue">
+    <h3>🕷️ The Secret is Written</h3>
+    <p>
+      I hide within words you read<br>
+      A whisper, a scream, a desperate need.<br><br>
+      "lookcloselyecholookcloselyecholookclosely"<br>
+      "darknessLIESdarknessLIESdarknessLIES"<br>
+      "thepasswordisechoechoechohiddenhere"
+    </p>
+    <input type="text" id="answer" placeholder="What's the password?" />
+    <br>
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="error" class="error-text"></p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const ans = document.getElementById("answer").value.trim().toLowerCase();
+      if (ans === "echo") {
+        window.location.href = "level3.html";
+      } else {
+        document.getElementById("error").textContent = "No... Look deeper.";
+      }
+    }
+  </script>
+</body>
+</html>
