@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEVEL 3 – Terminal Access</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: black;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 20px;
+    }
+    .terminal {
+      background-color: #111;
+      padding: 30px;
+      border: 2px solid #0f0;
+      border-radius: 10px;
+    }
+    .blink {
+      animation: blink 1s steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+
+    .input-field {
+      margin-top: 20px;
+    }
+
+    input {
+      background: black;
+      color: #0f0;
+      border: 1px solid #0f0;
+      padding: 5px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <h1>LEVEL 3</h1>
+  <div class="terminal">
+    <p class="blink">█ SYSTEM DECRYPTING...</p>
+    <p>Decrypt this sequence: <strong>@#13E#C#H#O#51@</strong></p>
+    <p>Hint: Only the letters matter.</p>
+
+    <div class="input-field">
+      <input type="text" id="answer" placeholder="Decrypted word..." />
+      <br><br>
+      <button onclick="checkAnswer()">Submit</button>
+      <p id="error" class="error-text" style="color: red;"></p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const ans = document.getElementById("answer").value.trim().toLowerCase();
+      if (ans === "echo") {
+        window.location.href = "level4.html";
+      } else {
+        document.getElementById("error").textContent = "Access Denied. Try again.";
+      }
+    }
+  </script>
+</body>
+</html>
