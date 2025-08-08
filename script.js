@@ -1,20 +1,18 @@
-function login() {
+function startLogin() {
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
   const error = document.getElementById("error-message");
 
   if (username === "CHINNU" && password === "1903") {
-    document.getElementById("login-page").classList.add("hidden");
-    document.getElementById("message-page").classList.remove("hidden");
-  } else {
-    error.textContent = "Incorrect username or password.";
-  }
-}
+    document.getElementById("login-screen").classList.add("hidden");
+    document.getElementById("tease-screen").classList.remove("hidden");
+
+    // Start teasing animation, then show final screen
     setTimeout(() => {
       document.getElementById("tease-screen").classList.add("hidden");
       document.getElementById("final-screen").classList.remove("hidden");
       showLoveMessage();
-    }, 6500); // 6.5 seconds of tease
+    }, 6500); // 6.5 seconds
   } else {
     error.textContent = "Access denied. Try again.";
     shakeLoginBox();
@@ -37,11 +35,12 @@ On this Rakshabandhan, I promise—
 I will always protect you, love you, and support you.
 
 You are deeply cherished.
-
   `.trim();
 
   let i = 0;
   const target = document.getElementById("love-message");
+  target.textContent = ""; // clear previous message
+
   const typeWriter = setInterval(() => {
     if (i < message.length) {
       target.textContent += message.charAt(i);
@@ -50,4 +49,10 @@ You are deeply cherished.
       clearInterval(typeWriter);
     }
   }, 40);
+}
+
+// Show gallery after love message
+function showGallery() {
+  document.getElementById("final-screen").classList.add("hidden");
+  document.getElementById("gallery-screen").classList.remove("hidden");
 }
