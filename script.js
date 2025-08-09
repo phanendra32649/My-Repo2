@@ -1,5 +1,5 @@
 // Unlock date and time
-const unlockTime = new Date("2025-08-09T00:00:00").getTime();
+const unlockTime = new Date("2025-08-10T00:00:00").getTime();
 
 // Check timer on load
 checkUnlockStatus();
