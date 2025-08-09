@@ -1,55 +1,23 @@
-// Unlock date and time
-const unlockTime = new Date("2025-08-10T00:00:00").getTime();
-
-// Check timer on load
-checkUnlockStatus();
-
-function checkUnlockStatus() {
-  const now = new Date().getTime();
-  if (now >= unlockTime) {
-    document.getElementById("lock-screen").classList.add("hidden");
-    document.getElementById("login-screen").classList.remove("hidden");
-  } else {
-    document.getElementById("login-screen").classList.add("hidden");
-    document.getElementById("lock-screen").classList.remove("hidden");
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  }
-}
-
-function updateCountdown() {
-  const now = new Date().getTime();
-  const distance = unlockTime - now;
-
-  if (distance <= 0) {
-    checkUnlockStatus();
-    return;
-  }
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  document.getElementById("countdown").textContent =
-    `${days}d ${hours}h ${minutes}m ${seconds}s`;
-}
+// Show login screen immediately
+document.getElementById("timer-lock-screen").classList.add("hidden");
+document.getElementById("login-screen").classList.remove("hidden");
 
 function startLogin() {
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
   const error = document.getElementById("error-message");
 
+  // Clear previous error
   error.textContent = "";
 
-  // Change password here if you want "CUDDLEPANDA" instead of "1903"
-  if (username === "CHINNU" && password === "1903") {
+  if (username === "CHINNU" && password === "CUDDLEPANDA") {
     switchScreen("login-screen", "tease-screen");
 
+    // Show teasing animation then switch to final message
     setTimeout(() => {
       switchScreen("tease-screen", "final-screen");
       showLoveMessage();
-    }, 6500);
+    }, 6500); // 6.5 seconds
   } else {
     error.textContent = "Access Denied. Please try again.";
     shakeLoginBox();
@@ -96,6 +64,7 @@ You are deeply cherished, and you always will be.
 
 function showGallery() {
   switchScreen("final-screen", "gallery-screen");
+  // Auto move to final tease page after 8 seconds
   setTimeout(() => {
     switchScreen("gallery-screen", "tease-end-screen");
   }, 8000);
@@ -105,6 +74,7 @@ function goToTeaseEnd() {
   switchScreen("gallery-screen", "tease-end-screen");
 }
 
+// Optional: Allow pressing "Enter" to trigger login
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && !document.getElementById("login-screen").classList.contains("hidden")) {
     startLogin();
