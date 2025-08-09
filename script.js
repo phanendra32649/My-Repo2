@@ -1,24 +1,6 @@
-// Timer Lock Code
-const launchDate = new Date("2025-08-09T00:00:00+05:30").getTime(); // 12AM IST
-const timerScreen = document.getElementById("timer-lock-screen");
-const loginScreen = document.getElementById("login-screen");
-
-const countdown = setInterval(() => {
-  const now = new Date().getTime();
-  const diff = launchDate - now;
-
-  if (diff <= 0) {
-    clearInterval(countdown);
-    timerScreen.classList.add("hidden");
-    loginScreen.classList.remove("hidden");
-  } else {
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    document.getElementById("countdown-timer").textContent =
-      `${hours}h ${minutes}m ${seconds}s`;
-  }
-}, 1000);
+// Show login screen immediately
+document.getElementById("timer-lock-screen").classList.add("hidden");
+document.getElementById("login-screen").classList.remove("hidden");
 
 function startLogin() {
   const username = document.getElementById("username").value.trim();
@@ -87,10 +69,10 @@ function showGallery() {
     switchScreen("gallery-screen", "tease-end-screen");
   }, 8000);
 }
+
 function goToTeaseEnd() {
   switchScreen("gallery-screen", "tease-end-screen");
 }
-
 
 // Optional: Allow pressing "Enter" to trigger login
 document.addEventListener("keydown", (e) => {
